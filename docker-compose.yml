@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  db:
+   container_name: bd_tainacan
+   image: mysql:5.7 
+   ports:
+    - "3306:3306"
+   environment:
+       MYSQL_ROOT_PASSWORD: somewordpress
+       MYSQL_DATABASE: wordpress
+       MYSQL_USER: wordpress
+       MYSQL_PASSWORD: wordpress
+
+  parede:
+     build: .
+     ports:
+        - "80:80"
+     links:
+       - db
+     environment:
+         title: Site do Parede
+         dbhost: localhost
+         dbname: wordpress
+         dbuser: wordpress
+         dbpass: wordpress
+
