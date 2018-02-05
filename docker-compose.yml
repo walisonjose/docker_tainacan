@@ -1,21 +1,20 @@
 version: '3'
-services:  
-  banco:
-     image: mysql:5.7
-     ports:
-        - "3306:3306"
-     container_name: db_tainacan
-     restart: always
-     environment:
+services:
+ db:
+   container_name: db_tainacan
+   image: mysql:latest
+   ports:
+   - "3306:3306"
+   hostname: db_tainacan
+   environment:
        MYSQL_ROOT_PASSWORD: somewordpress
        MYSQL_DATABASE: wordpress
        MYSQL_USER: wordpress
        MYSQL_PASSWORD: wordpress
-
-  parede:
-     build: .
-     ports:
-        - "80:80"
-     restart: always
-     links:
-       - banco:db_tainacan
+ tainacan:
+    image: dockertainacan_tainacan:latest
+    container_name: web_tainacan
+    ports:
+     - "80:80"
+    links:
+     - db
