@@ -38,6 +38,8 @@ define( 'DB_CHARSET', 'utf8' );
 /** O tipo de Collate do banco de dados. Não altere isso se tiver dúvidas. */
 define( 'DB_COLLATE', '' );
 
+define('WP_DEFAULT_THEME', 'tainacan');
+
 /**#@+
  * Chaves únicas de autenticação e salts.
  *
