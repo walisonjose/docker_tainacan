@@ -17,7 +17,7 @@ RUN apt-get update \
  && apt-get install -y wget nmap php7.0 php7.0-mysql php7.0-fpm php-xml php-mbstring php7.0-mcrypt libapache2-mod-php7.0 php7.0-cli php7.0-curl apache2 curl mysql-client git vim \
  && a2enmod rewrite \ 
  && cp  /files/apache2.conf /etc/apache2/ \
- && cp  /files/.htaccess /var/www/html \
+ && cp  /files/.htaccess $path \
  && apachectl restart  \
  # Instalando o wp-cli
  && curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
