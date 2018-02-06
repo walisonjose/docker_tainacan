@@ -5,14 +5,13 @@ services:
    image: mysql:latest
    ports:
    - "3306:3306"
-   hostname: db_tainacan
    environment:
        MYSQL_ROOT_PASSWORD: somewordpress
        MYSQL_DATABASE: wordpress
        MYSQL_USER: wordpress
        MYSQL_PASSWORD: wordpress
  tainacan:
-    image: dockertainacan_tainacan:latest
+    image: walisonjosededeus/tainacan_compose:1.0
     container_name: web_tainacan
     ports:
      - "80:80"

@@ -1,4 +1,4 @@
-#e an official Python runtime as a parent image
+#Pegando a imagem do Ubuntu
 FROM ubuntu:16.04
 
 ENV path="/var/www/html"
@@ -24,10 +24,12 @@ RUN apt-get update \
  && chmod +x wp-cli.phar \
  && mv wp-cli.phar /usr/local/bin/wp \  
  #Baixando o Wordpress e o Tainacan
- && chown -R www-data:www-data $path \
  && wp --allow-root core download --path="$path" \
+ && chown -R www-data:www-data $path \
+ && find $path -type d -exec chmod 755 {} \; \
+ && find $path -type f -exec chmod 644 {} \; \
  && cp  /files/wp-config.php $path \
- && chmod 644 $path/wp-config.php \
+ && chmod 644 $path/wp-config.php \ 
  && rm -r $path/index.html \
 #Clonando o tema do Tainacan
  && git clone https://github.com/medialab-ufg/tainacan.git $path/wp-content/themes/tainacan/ 
