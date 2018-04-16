@@ -30,7 +30,7 @@ define( 'DB_USER', 'wordpress' );
 define( 'DB_PASSWORD', 'wordpress' );
 
 /** Nome do host do MySQL */
-define( 'DB_HOST', 'db_tainacan' );
+define( 'DB_HOST', 'db' );
 
 /** Charset do banco de dados a ser usado na criação das tabelas. */
 define( 'DB_CHARSET', 'utf8' );
