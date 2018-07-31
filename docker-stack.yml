@@ -1,0 +1,35 @@
+version: '3.3'
+services:
+  db:
+    image: mysql:5.7
+    container_name: mysql_tainacan
+    ports:
+      - "3306"
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root_senha
+      MYSQL_DATABASE: bd_wordpress
+      MYSQL_USER: tainacan
+      MYSQL_PASSWORD: tainacan_senha
+    volumes:
+    - ./mysql:/var/lib/mysql
+
+  wordpress:
+   image: walisonjosededeus/tainacan:3.2
+   container_name: wordpress_tainacan
+   ports:
+      - "80:80"
+      - "443:443"
+   restart: always
+   environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: tainacan
+      WORDPRESS_DB_PASSWORD: tainacan_senha
+   
+   volumes:
+    - ./uploads:/var/www/html/wp-content/uploads
+    - ./tainacan-theme:/files/tainacan-theme
+    - ./themes:/var/www/html/wp-content/themes
+    - ./plugins:/var/www/html/wp-content/plugins
+    - ./docker_configs/default_host:/etc/apache2/sites-available/
+    - ./certificados_medilab:/etc/ssl/medialab/
