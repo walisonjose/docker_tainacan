@@ -7,10 +7,10 @@ services:
       - "3306"
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: root_senha
-      MYSQL_DATABASE: bd_wordpress
-      MYSQL_USER: tainacan
-      MYSQL_PASSWORD: tainacan_senha
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     volumes:
     - ./mysql:/var/lib/mysql
 
@@ -22,14 +22,14 @@ services:
       - "443:443"
    restart: always
    environment:
-      WORDPRESS_DB_HOST: db:3306
-      WORDPRESS_DB_USER: tainacan
-      WORDPRESS_DB_PASSWORD: tainacan_senha
+      WORDPRESS_DB_HOST: ${MYSQL_DB_HOST}:3306
+      WORDPRESS_DB_USER: ${MYSQL_USER}
+      WORDPRESS_DB_PASSWORD: ${MYSQL_PASSWORD}
    
    volumes:
-    - ./uploads:/var/www/html/wp-content/uploads
-    - ./tainacan-theme:/files/tainacan-theme
-    - ./themes:/var/www/html/wp-content/themes
-    - ./plugins:/var/www/html/wp-content/plugins
-    - ./docker_configs/default_host:/etc/apache2/sites-available/
-    - ./certificados_medilab:/etc/ssl/medialab/
+    - ${PATH}/uploads:/var/www/html/wp-content/uploads
+    - ${PATH}/tainacan-theme:/files/tainacan-theme
+    - ${PATH}/themes:/var/www/html/wp-content/themes
+    - ${PATH}/plugins:/var/www/html/wp-content/plugins
+    - ${PATH}/docker_configs/default_host:/etc/apache2/sites-available/
+    - ${PATH}/certificados_medilab:/etc/ssl/medialab/
