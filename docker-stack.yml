@@ -12,7 +12,7 @@ services:
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     volumes:
-    - ${PATH}/mysql:/var/lib/mysql
+    - "${PATH}/mysql:/var/lib/mysql"
 
   wordpress:
    image: walisonjosededeus/tainacan:3.2
@@ -27,9 +27,9 @@ services:
       WORDPRESS_DB_PASSWORD: ${MYSQL_PASSWORD}
    
    volumes:
-    - ${PATH}/uploads:/var/www/html/wp-content/uploads
-    - ${PATH}/tainacan-theme:/files/tainacan-theme
-    - ${PATH}/themes:/var/www/html/wp-content/themes
-    - ${PATH}/plugins:/var/www/html/wp-content/plugins
+    - "${PATH}/uploads:/var/www/html/wp-content/uploads"
+    - "${PATH}/tainacan-theme:/files/tainacan-theme"
+    - "${PATH}/themes:/var/www/html/wp-content/themes"
+    - '${PATH}/plugins:/var/www/html/wp-content/plugins"
     #- ${PATH}/docker_configs/default_host:/etc/apache2/sites-available/
     #- ${PATH}/certificados_medilab:/etc/ssl/medialab/
