@@ -18,8 +18,8 @@ services:
    image: walisonjosededeus/tainacan:3.2
    container_name: wordpress_tainacan
    ports:
-      - "80:80"
-      - "443:443"
+      - "${PORT_HTTP}:80"
+      - "${PORT_HTTPS}:443"
    restart: always
    environment:
       WORDPRESS_DB_HOST: ${MYSQL_DB_HOST}:3306
