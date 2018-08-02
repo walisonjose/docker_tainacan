@@ -12,7 +12,9 @@ services:
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     volumes:
-    - "${document_root}/mysql:/var/lib/mysql"
+     - "${document_root}/mysql:/var/lib/mysql"
+    networks:
+      - ${rede_site}
       
   wordpress:
    image: walisonjosededeus/tainacan:3.2
@@ -33,4 +35,9 @@ services:
     - "${document_root}/plugins:/var/www/html/wp-content/plugins"
     #- ${PATH}/docker_configs/default_host:/etc/apache2/sites-available/
     #- ${PATH}/certificados_medilab:/etc/ssl/medialab/
+  networks:
+      - ${rede_site}
+networks:
+ ${rede_site}:
+   external: true
 
