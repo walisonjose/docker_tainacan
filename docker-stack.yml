@@ -30,6 +30,6 @@ services:
     - "${PATH}/uploads:/var/www/html/wp-content/uploads"
     - "${PATH}/tainacan-theme:/files/tainacan-theme"
     - "${PATH}/themes:/var/www/html/wp-content/themes"
-    - '${PATH}/plugins:/var/www/html/wp-content/plugins"
+    - "${PATH}/plugins:/var/www/html/wp-content/plugins"
     #- ${PATH}/docker_configs/default_host:/etc/apache2/sites-available/
     #- ${PATH}/certificados_medilab:/etc/ssl/medialab/
