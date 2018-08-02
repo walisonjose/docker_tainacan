@@ -14,7 +14,7 @@ services:
     volumes:
     - "${document_root}/mysql:/var/lib/mysql"
     networks:
-      - "${rede}"
+      - default
       
   wordpress:
    image: walisonjosededeus/tainacan:3.2
@@ -36,8 +36,8 @@ services:
     #- ${PATH}/docker_configs/default_host:/etc/apache2/sites-available/
     #- ${PATH}/certificados_medilab:/etc/ssl/medialab/
    networks:
-      - "${rede}"
+      - default
 
 networks:
-  "${rede}":
+  default:
     external: true
