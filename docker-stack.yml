@@ -28,4 +28,4 @@ services:
       WORDPRESS_DB_PASSWORD: ${MYSQL_PASSWORD}
    
    volumes:
-    - "${document_root}:/files
+    - "${document_root}:/files"
