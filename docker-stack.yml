@@ -15,11 +15,12 @@ services:
      - "${document_root}/mysql:/var/lib/mysql"
      
   wordpress:
-   image: walisonjosededeus/tainacan:3.2
+   image: walisonjosededeus/tainacan:3.2.1
    #container_name: wordpress_tainacan
    ports:
       - "${PORT_HTTP}:80"
-      - "${PORT_HTTPS}:443"
+     # - "${PORT_HTTPS}:443"
+      -  "25"
    restart: always
    environment:
       WORDPRESS_DB_HOST: ${MYSQL_DB_HOST}:3306
@@ -27,9 +28,10 @@ services:
       WORDPRESS_DB_PASSWORD: ${MYSQL_PASSWORD}
    
    volumes:
-    - "${document_root}/uploads:/var/www/html/wp-content/uploads"
-    - "${document_root}/tainacan-theme:/files/tainacan-theme"
-    - "${document_root}/themes:/var/www/html/wp-content/themes"
-    - "${document_root}/plugins:/var/www/html/wp-content/plugins"
+    - "${document_root}:/files
+    #- "${document_root}/uploads:/var/www/html/wp-content/uploads"
+    #- "${document_root}/tainacan-theme:/files/tainacan-theme"
+    #- "${document_root}/themes:/var/www/html/wp-content/themes"
+    #- "${document_root}/plugins:/var/www/html/wp-content/plugins"
     #- ${PATH}/docker_configs/default_host:/etc/apache2/sites-available/
     #- ${PATH}/certificados_medilab:/etc/ssl/medialab/
