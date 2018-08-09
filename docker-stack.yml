@@ -29,9 +29,3 @@ services:
    
    volumes:
     - "${document_root}:/files
-    #- "${document_root}/uploads:/var/www/html/wp-content/uploads"
-    #- "${document_root}/tainacan-theme:/files/tainacan-theme"
-    #- "${document_root}/themes:/var/www/html/wp-content/themes"
-    #- "${document_root}/plugins:/var/www/html/wp-content/plugins"
-    #- ${PATH}/docker_configs/default_host:/etc/apache2/sites-available/
-    #- ${PATH}/certificados_medilab:/etc/ssl/medialab/
