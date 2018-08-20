@@ -15,7 +15,7 @@ services:
      - "${document_root}/mysql:/var/lib/mysql"
      
   wordpress:
-   image: walisonjosededeus/tainacan:3.2.2
+   image: walisonjosededeus/tainacan:3.2.1
    #container_name: wordpress_tainacan
    ports:
       - "${PORT_HTTP}:80"
