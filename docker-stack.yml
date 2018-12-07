@@ -36,3 +36,6 @@ services:
    
    volumes:
     - "${document_root}:/files"
+    #- "${document_root}/wp-config.php:/var/www/html/wp-config.php"
+    - "${document_root}/docker_configs/default_host:/etc/apache2/sites-available/"
+    - "${document_root}/certificados_medilab:/etc/ssl/medialab/"
