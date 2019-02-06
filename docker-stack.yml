@@ -15,12 +15,12 @@ services:
      - "${document_root}/mysql:/var/lib/mysql"
      
   wordpress:
-   image: walisonjosededeus/tainacan:3.3
+   image: walisonjosededeus/tainacan:3.3.1
    #container_name: wordpress_tainacan
    ports:
-      - "${PORT_HTTP}:80"
-     # - "${PORT_HTTPS}:443"
-      -  "25"
+     - "${PORT_HTTP}:80"
+     - "${PORT_HTTPS}:443"
+     -  "25"
    restart: always
    environment:
       WORDPRESS_DB_HOST: ${WORDPRESS_DB_HOST}:3306
